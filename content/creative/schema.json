@@ -1,0 +1,19 @@
+{
+  "title": "creative",
+  "type": "object",
+  "properties": {
+    "tags": {
+      "required": false,
+      "description": "Add tags to the post",
+      "values": [
+        {
+          "value": "dsf",
+          "label": "dsf"
+        }
+      ],
+      "fieldType": "Tags",
+      "dataType": "array",
+      "title": "Tags"
+    }
+  }
+}
