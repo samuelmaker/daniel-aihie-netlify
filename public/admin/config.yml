@@ -4,27 +4,44 @@ backend:
   name: git-gateway
   repo: samuelmaker/daniel-aihie-netlify
   branch: main
+  commit_messages:
+    create: Create {{collection}} “{{slug}}”
+    update: Update {{collection}} “{{slug}}”
+    delete: Delete {{collection}} “{{slug}}”
+    uploadMedia: Upload “{{path}}”
+    deleteMedia: Delete “{{path}}”
+    openAuthoring: "{{message}}"
 
-media_folder: "src/assets/images" # Location where files will be stored in the repo
-public_folder: "src/assets/images" # The src attribute for uploaded media
+media_folder: "decap_cms/assets/images" # Location where files will be stored in the repo
+public_folder: "decap_cms/assets/images" # The src attribute for uploaded media
 
 # Here we define content structure
 collections:
-  - label: "Edits"
-    name: "edits"
-    folder: "src/content/edits"
+  - label: "Edits" # Used in the UI
+    name: "edits" # Used in routes, e.g., /admin/collections/edits
+    folder: "decap_cms/content/edits"
     create: true # Allow users to create new documents in this collection
-    fields:
+    slug: "{{slug}}" # Filename template, e.g., title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Author", name: "author", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown" }
   - label: "Creative"
     name: "creative"
-    folder: "src/content/creative"
+    folder: "decap_cms/content/creative"
     create: true # Allow users to create new documents in this collection
-    fields:
+    slug: "{{slug}}" # Filename template, e.g., title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Author", name: "author", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+site_url: https://daniel-aihie.netlify.app
+
+display_url: https://daniel-aihie.netlify.app

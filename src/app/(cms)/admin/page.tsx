@@ -1,3 +1,6 @@
+// !  https://github.com/wutali/nextjs-netlify-blog-template
+// !  https://github.com/deonneon/nextjs-netlify-blog-template (updated)
+
 export default function Admin() {
   return (
     <html
