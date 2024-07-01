@@ -79,9 +79,9 @@ collections:
           widget: "relation",
           collection: "meta",
           file: "authors",
-          searchFields: "authors.*.name",
+          searchFields: ["authors.*.name"],
+          displayFields: ["authors.*.name"],
           valueField: "authors.*.slug",
-          displayFields: "authors.*.name",
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -115,9 +115,9 @@ collections:
           widget: "relation",
           collection: "meta",
           file: "authors",
-          searchFields: "authors.*.name",
+          searchFields: ["authors.*.name"],
+          displayFields: ["authors.*.name"],
           valueField: "authors.*.slug",
-          displayFields: "authors.*.name",
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
