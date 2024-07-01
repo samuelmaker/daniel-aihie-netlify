@@ -79,9 +79,9 @@ collections:
           widget: "relation",
           collection: "meta",
           file: "authors",
-          searchFields: ["name"],
-          displayFields: ["name"],
-          valueField: "slug",
+          searchFields: "authors.*.name",
+          valueField: "authors.*.slug",
+          displayFields: "authors.*.name",
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -109,7 +109,16 @@ collections:
           timeFormat: false,
         }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Author", name: "author", widget: "string" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "relation",
+          collection: "meta",
+          file: "authors",
+          searchFields: "authors.*.name",
+          valueField: "authors.*.slug",
+          displayFields: "authors.*.name",
+        }
       - { label: "Body", name: "body", widget: "markdown" }
 
 site_url: https://danielaihie.netlify.app
