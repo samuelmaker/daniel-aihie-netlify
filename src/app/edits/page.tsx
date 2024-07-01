@@ -1,6 +1,9 @@
 import ContentGrid from "@/components/ContentGrid";
 import Layout from "@/components/Layout";
-import { listEditsContent } from "@/libs/edits";
+import { fetchPosts } from "@/libs/getData";
+import path from "path";
+
+const editsDirectory = path.join(process.cwd(), "decap_cms/content/edits");
 
 const Edits = async () => {
   const { allEdits } = await getData();
@@ -26,14 +29,7 @@ const Edits = async () => {
 export default Edits;
 
 const getData = async () => {
-  // const db = await load();
-
-  // const allEdits = await db
-  //   .find({ collection: "edits" }, ["publishedAt", "slug", "coverImage"])
-  //   .sort({ publishedAt: -1 })
-  //   .toArray();
-
-  const allEdits = listEditsContent();
+  const allEdits = fetchPosts(editsDirectory);
 
   return {
     allEdits,

@@ -5,7 +5,6 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 
 export default async function markdownToHtml(markdown: string) {
-  console.log("markdown", markdown);
   const result = await remark()
     .use(html)
     .use(remarkRehype, { allowDangerousHtml: true })

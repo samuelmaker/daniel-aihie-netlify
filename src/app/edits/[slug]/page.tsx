@@ -1,12 +1,15 @@
 import ContentGrid from "@/components/ContentGrid";
 import DateFormatter from "@/components/DateFormatter";
 import Layout from "@/components/Layout";
-import { listEditsContent, loadEditBySlug } from "@/libs/edits";
+import { fetchPosts, loadEditBySlug } from "@/libs/getData";
 import markdownToHtml from "@/libs/markdownToHtml";
 import { absoluteUrl } from "@/libs/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import path from "path";
+
+const editsDirectory = path.join(process.cwd(), "decap_cms/content/edits");
 
 interface Params {
   params: {
@@ -48,7 +51,7 @@ export const generateMetadata = async (params: Params): Promise<Metadata> => {
 
 const Edit = async (params: Params) => {
   const { edit, moreedits, content } = await getData(params);
-  console.log(content);
+  console.log(edit);
 
   return (
     <Layout className="bg-secondary text-black">
@@ -68,13 +71,11 @@ const Edit = async (params: Params) => {
               <h1 className="font-primary text-2xl font-bold md:text-4xl mb-2">
                 {edit.title}
               </h1>
-              {/* <div className="hidden md:block md:mb-8 text-slate-600">
-                Launched on <DateFormatter dateString={edit.publishedAt} />{" "}
-                {edit?.author?.name ? `by ${edit?.author?.name}` : null}.
+              <div className="hidden md:block md:mb-8 text-slate-600 capitalize">
+                Launched on <DateFormatter dateString={edit.date} />{" "}
+                {edit?.author ? `by ${edit?.author}` : null}.
               </div>
-              <div className="inline-block p-4 border mb-8 font-semibold text-lg rounded shadow">
-                {edit.description}
-              </div> */}
+
               <div className="max-w-2xl mx-auto">
                 <div
                   className="prose lg:prose-xl"
@@ -101,40 +102,14 @@ const Edit = async (params: Params) => {
 export default Edit;
 
 const getData = async ({ params }: Params) => {
-  // const db = await load();
-  // const edit = await db
-  //   .find<Edit>({ collection: "edits", slug: params.slug }, [
-  //     "title",
-  //     "publishedAt",
-  //     "description",
-  //     "slug",
-  //     "author",
-  //     "content",
-  //     "coverImage",
-  //   ])
-  //   .first();
-  // if (!edit) {
-  //   notFound();
-  // }
-  // const content = await markdownToHtml(edit.content);
-  // const moreedits = await db
-  //   .find({ collection: "edits", slug: { $ne: params.slug } }, [
-  //     "title",
-  //     "slug",
-  //     "coverImage",
-  //   ])
-  //   .toArray();
-  // return {
-  //   edit,
-  //   content,
-  //   moreedits,
-  // };
-  const edit = loadEditBySlug(params.slug);
+  const edit = loadEditBySlug(editsDirectory, params.slug);
   if (!edit) {
     notFound();
   }
   const content = await markdownToHtml(edit.content);
-  const moreedits = listEditsContent().filter((it) => it.slug !== params.slug);
+  const moreedits = fetchPosts(editsDirectory).filter(
+    (it) => it.slug !== params.slug
+  );
   return {
     edit,
     content,
@@ -142,13 +117,8 @@ const getData = async ({ params }: Params) => {
   };
 };
 
-// export const generateStaticParams = () => {
-//   const posts = listEditsContent();
-//   return posts.map((slug) => ({ slug }));
-// };
-
 export const getStaticPaths = async () => {
-  const edits = listEditsContent();
+  const edits = fetchPosts(editsDirectory);
   const paths = edits.map((edit) => ({
     params: { slug: edit.slug },
   }));
