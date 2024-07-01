@@ -33,16 +33,17 @@ collections:
           dateFormat: "YYYY-MM-DD",
           timeFormat: false,
         }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
       - {
           label: "Slug",
           name: "slug",
           widget: "string",
           hint: "The URL of the post",
-          default: "{{slug}}",
+          default: “{{slug}}”
         }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
   - label: "Creative"
     name: "creative"
     folder: "decap_cms/content/creative"
@@ -59,16 +60,16 @@ collections:
           dateFormat: "YYYY-MM-DD",
           timeFormat: false,
         }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
       - {
           label: "Slug",
           name: "slug",
           widget: "string",
           hint: "The URL of the post",
-          default: "{{slug}}",
+          default: “{{slug}}”
         }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
 
 site_url: https://danielaihie.netlify.app
 
