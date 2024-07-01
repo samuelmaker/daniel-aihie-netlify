@@ -42,6 +42,6 @@ collections:
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-site_url: https://daniel-aihie.netlify.app
+site_url: https://danielaihie.netlify.app
 
-display_url: https://daniel-aihie.netlify.app
+display_url: https://danielaihie.netlify.app
