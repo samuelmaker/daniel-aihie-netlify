@@ -15,6 +15,10 @@ backend:
 media_folder: "public/assets/images" # Location where files will be stored in the repo
 public_folder: "/assets/images" # The src attribute for uploaded media
 
+publish_mode: editorial_workflow
+
+# logo_url: https://your-site.com/images/logo.svg # URL to the logo image for the CMS
+
 # Here we define content structure
 collections:
   - label: "Edits" # Used in the UI
@@ -50,7 +54,12 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
       # add slug field dynamically as the title is entered by the user and the slug is generated from the title
-      - { label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}" }
+      - {
+          label: "Slug",
+          name: "slug",
+          widget: "hidden",
+          default: "{{fields.title}}",
+        }
       - {
           label: "Publish Date",
           name: "date",
