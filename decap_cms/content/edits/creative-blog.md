@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Creative Blog
+title: Edits Blog
 date: 2024-07-01T11:14:00.000Z
 thumbnail: decap_cms/assets/images/industrial-pattern.png
 author: Admin
