@@ -17,51 +17,15 @@ public_folder: "/assets/images" # The src attribute for uploaded media
 
 # Here we define content structure
 collections:
-  - name: "config"
-    label: "Config"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "general"
-        label: "Site Config"
-        file: "config.json"
-        description: "General site settings"
-        fields:
-          - label: "URL"
-            name: "base_url"
-            widget: "string"
-            hint: "Do not enter the trailing slash of the URL"
-          - label: "Site title"
-            name: "site_title"
-            widget: "string"
-          - label: "Site description"
-            name: "site_description"
-            widget: "string"
-          - label: "Site keywords"
-            name: "site_keywords"
-            widget: "list"
-            summary: "{{fields.keyword.keyword}}"
-            field:
-              label: Keyword
-              name: keyword
-              widget: "string"
-          - label: "Twitter account"
-            name: "twitter_account"
-            widget: "string"
-          - label: "GitHub account"
-            name: "github_account"
-            widget: "string"
-
   - label: "Edits" # Used in the UI
     name: "edits" # Used in routes, e.g., /admin/collections/edits
     folder: "decap_cms/content/edits"
     create: true # Allow users to create new documents in this collection
+    format: "frontmatter"
     slug: "{{slug}}" # Filename template, e.g., title.md
-    identifier_field: slug
+    identifier_field: title
     fields: # The fields for each document, usually in front matter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-      - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Publish Date",
@@ -79,12 +43,14 @@ collections:
     name: "creative"
     folder: "decap_cms/content/creative"
     create: true # Allow users to create new documents in this collection
+    format: "frontmatter"
     slug: "{{slug}}" # Filename template, e.g., title.md
-    identifier_field: slug
+    identifier_field: title
     fields: # The fields for each document, usually in front matter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-      - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
+      # add slug field dynamically as the title is entered by the user and the slug is generated from the title
+      - { label: "Slug", name: "slug", widget: "hidden", default: "{{slug}}" }
       - {
           label: "Publish Date",
           name: "date",
