@@ -21,16 +21,50 @@ publish_mode: editorial_workflow
 
 # Here we define content structure
 collections:
+  - name: "meta"
+    label: "Meta"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "authors"
+        label: "Authors"
+        file: "meta/authors.yml"
+        description: "Author descriptions"
+        fields:
+          - name: authors
+            label: Authors
+            label_singular: "Author"
+            widget: list
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the author"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "First and Last"
+              - label: "Introduction"
+                name: "introduction"
+                widget: "text"
+
   - label: "Edits" # Used in the UI
     name: "edits" # Used in routes, e.g., /admin/collections/edits
     folder: "decap_cms/content/edits"
     create: true # Allow users to create new documents in this collection
     format: "frontmatter"
-    slug: "{{slug}}" # Filename template, e.g., title.md
-    identifier_field: title
+    slug: "{{fields.slug}}" # Filename template, e.g., title.md
+    identifier_field: slug
     fields: # The fields for each document, usually in front matter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Slug",
+          name: "slug",
+          widget: "string",
+          hint: "The URL of the page",
+        }
       - {
           label: "Publish Date",
           name: "date",
@@ -40,7 +74,16 @@ collections:
           timeFormat: false,
         }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Author", name: "author", widget: "string" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "relation",
+          collection: "meta",
+          file: "authors",
+          searchFields: ["name"],
+          displayFields: ["name"],
+          valueField: "slug",
+        }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - label: "Creative"
@@ -48,17 +91,16 @@ collections:
     folder: "decap_cms/content/creative"
     create: true # Allow users to create new documents in this collection
     format: "frontmatter"
-    slug: "{{slug}}" # Filename template, e.g., title.md
-    identifier_field: title
+    slug: "{{fields.slug}}" # Filename template, e.g., title.md
+    identifier_field: slug
     fields: # The fields for each document, usually in front matter
       - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
-      # add slug field dynamically as the title is entered by the user and the slug is generated from the title
       - {
           label: "Slug",
           name: "slug",
-          widget: "hidden",
-          default: "{{fields.title}}",
+          widget: "string",
+          hint: "The URL of the page",
         }
       - {
           label: "Publish Date",
