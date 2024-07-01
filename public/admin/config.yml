@@ -17,38 +17,14 @@ public_folder: "/assets/images" # The src attribute for uploaded media
 
 publish_mode: editorial_workflow
 
+site_url: https://danielaihie.netlify.app
+
+display_url: https://danielaihie.netlify.app
+
 # logo_url: https://your-site.com/images/logo.svg # URL to the logo image for the CMS
 
 # Here we define content structure
 collections:
-  - name: "meta"
-    label: "Meta"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "authors"
-        label: "Authors"
-        file: "meta/authors.yml"
-        description: "Author descriptions"
-        fields:
-          - name: authors
-            label: Authors
-            label_singular: "Author"
-            widget: list
-            fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the author"
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "First and Last"
-              - label: "Introduction"
-                name: "introduction"
-                widget: "text"
-
   - label: "Edits" # Used in the UI
     name: "edits" # Used in routes, e.g., /admin/collections/edits
     folder: "decap_cms/content/edits"
@@ -62,7 +38,7 @@ collections:
           label: "Slug",
           name: "slug",
           widget: "string",
-          hint: "The URL of the page (e.g., /this-is-the-slug)",
+          hint: "The URL of the page (e.g. Title: This is title slug: this-is-the-slug)",
         }
       - {
           label: "Publish Date",
@@ -98,7 +74,7 @@ collections:
           label: "Slug",
           name: "slug",
           widget: "string",
-          hint: "The URL of the page (e.g., /this-is-the-slug)",
+          hint: "The URL of the page (e.g. Title: This is title slug: this-is-the-slug)",
         }
       - {
           label: "Publish Date",
@@ -121,6 +97,30 @@ collections:
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
-site_url: https://danielaihie.netlify.app
-
-display_url: https://danielaihie.netlify.app
+  - name: "meta"
+    label: "Meta"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "authors"
+        label: "Authors"
+        file: "meta/authors.yml"
+        description: "Author descriptions"
+        fields:
+          - name: authors
+            label: Authors
+            label_singular: "Author"
+            widget: list
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the author"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "First and Last"
+              - label: "Introduction"
+                name: "introduction"
+                widget: "text"
