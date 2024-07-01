@@ -27,7 +27,7 @@ const ContentGrid = ({ title, items, collection, priority = false }: Props) => {
                 <div className="cursor-pointer  md:w-full scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 hover:shadow overflow-hidden border-4 border-white">
                   <div className="sm:mx-0">
                     <Image
-                      src={"/assets/images/bearbnb.png"}
+                      src={item.thumbnail ?? ""}
                       alt={`Cover Image for ${item.title}`}
                       className="object-cover  w-full h-full md:h-96"
                       width={680}

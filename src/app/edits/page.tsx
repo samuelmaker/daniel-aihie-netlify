@@ -5,8 +5,6 @@ import { listEditsContent } from "@/libs/edits";
 const Edits = async () => {
   const { allEdits } = await getData();
 
-  console.log(allEdits);
-
   return (
     <Layout className="bg-secondary text-black">
       <div>
@@ -35,7 +33,7 @@ const getData = async () => {
   //   .sort({ publishedAt: -1 })
   //   .toArray();
 
-  const allEdits = listEditsContent(1, 10);
+  const allEdits = listEditsContent();
 
   return {
     allEdits,

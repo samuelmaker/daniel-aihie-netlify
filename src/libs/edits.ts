@@ -9,6 +9,7 @@ export type EditsContent = {
   date: string;
   title: string;
   thumbnail: string;
+  slug: string;
 };
 
 let EditsCache: EditsContent[];
@@ -19,14 +20,11 @@ export function fetchEditsContent(): EditsContent[] {
   }
   // Get file names under /edits
   const fileNames = fs.readdirSync(editsDirectory);
-  console.log(fileNames);
   const allEditsData = fileNames
     .filter((it) => it.endsWith(".md"))
     .map((fileName) => {
-      console.log();
       // Read markdown file as string
       const fullPath = path.join(editsDirectory, fileName);
-      console.log("full path", fullPath);
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
       // Use gray-matter to parse the Edits metadata section
@@ -35,21 +33,17 @@ export function fetchEditsContent(): EditsContent[] {
           yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
         },
       });
-      const matterData = matterResult.data as {
-        date: string;
-        title: string;
-        thumbnail: string;
-      };
+      const matterData = matterResult.data as EditsContent;
       // matterData.fullPath = fullPath;
 
       const slug = fileName.replace(/\.md$/, "");
 
       // Validate slug string
-      // if (matterData.slug !== slug) {
-      //   throw new Error(
-      //     "slug field not match with the path of its content source"
-      //   );
-      // }
+      if (matterData.slug !== slug) {
+        throw new Error(
+          "slug field not match with the path of its content source"
+        );
+      }
 
       return matterData;
     });
@@ -64,17 +58,31 @@ export function fetchEditsContent(): EditsContent[] {
   return EditsCache;
 }
 
-// export function countedits(tag?: string): number {
-//   return fetchEditsContent().filter(
-//     (it) => !tag || (it.tags && it.tags.includes(tag))
-//   ).length;
-// }
-
-export function listEditsContent(
-  page: number,
-  limit: number,
-  tag?: string
-): EditsContent[] {
-  return fetchEditsContent().slice((page - 1) * limit, page * limit);
-  // .filter((it) => !tag || (it.tags && it.tags.includes(tag)))
+export function listEditsContent(): EditsContent[] {
+  return fetchEditsContent();
+}
+export function loadEditBySlug(slug: string) {
+  const fullPath = path.join(editsDirectory, `${slug}.md`);
+  try {
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents, {
+      engines: {
+        yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
+      },
+    });
+    const matterContent = matterResult.content;
+    const matterData = matterResult.data as EditsContent;
+    if (matterData.slug !== slug) {
+      throw new Error(
+        "slug field does not match with the path of its content source"
+      );
+    }
+    return {
+      ...matterData,
+      content: matterContent,
+    };
+  } catch (error) {
+    console.error(`Error loading the post with slug '${slug}':`, error);
+    return undefined;
+  }
 }
