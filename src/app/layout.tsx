@@ -10,9 +10,9 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-const ttNormsPro = localFont({
-  src: "./TT-Norms-Pro.otf",
-  variable: "--font-ttNormsPro",
+const blocPro = localFont({
+  src: "./Bloc.ttf",
+  variable: "--font-blocPro",
   weight: "900",
 });
 
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${roboto.variable} font-roboto ${ttNormsPro.variable} font-ttNormsPro`}
+      className={`${roboto.variable} font-roboto ${blocPro.variable} font-blocPro`}
     >
       <body>{children}</body>
     </html>

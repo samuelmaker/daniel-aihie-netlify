@@ -55,8 +55,8 @@ const Edit = async (params: Params) => {
 
   return (
     <Layout className="bg-secondary text-black">
-      <div className="max-w-6xl mx-auto px-5">
-        <article className="mb-8">
+      <div className="max-w-6xl mx-auto px-5 py-6">
+        <article>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative mb-2 md:mb-4 sm:mx-0 aspect-square">
               <Image
@@ -85,7 +85,7 @@ const Edit = async (params: Params) => {
             </div>
           </div>
         </article>
-        <div className="">
+        <div className="mt-8">
           {moreEdits.length > 0 && (
             <ContentGrid
               title="Other edits"

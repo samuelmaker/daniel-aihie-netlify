@@ -14,7 +14,7 @@ const config: Config = {
       },
       fontFamily: {
         roboto: ["var(--font-roboto)"],
-        ttNormsPro: ["var(--font-ttNormsPro)"],
+        blocPro: ["var(--font-blocPro)"],
       },
     },
   },

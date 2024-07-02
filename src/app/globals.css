@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  @apply font-roboto font-normal bg-primary;
+  @apply font-blocPro bg-primary;
 }
 
 ol,
@@ -30,5 +30,5 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-ttNormsPro font-black;
+  @apply font-blocPro font-black;
 }
