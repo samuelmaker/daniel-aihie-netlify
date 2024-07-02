@@ -14,9 +14,8 @@
 html {
   @apply text-black focus-within:scroll-smooth;
 }
-
 body {
-  cursor: url("./cursor.png"), auto;
+  cursor: url("/assets/images/cursor.png"), auto;
   @apply font-blocPro bg-primary;
 }
 
