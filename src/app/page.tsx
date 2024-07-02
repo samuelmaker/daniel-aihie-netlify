@@ -1,5 +1,5 @@
-import { socialItems } from "@/components/Header";
 import Layout from "@/components/Layout";
+import { socialItems } from "@/libs/socialItems";
 import homeBg from "@public/assets/images/home-bg.jpg";
 import plane from "@public/assets/images/paper-plane.png";
 import Image from "next/image";

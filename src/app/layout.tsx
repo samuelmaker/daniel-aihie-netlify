@@ -1,8 +1,8 @@
+import { absoluteUrl } from "@/libs/utils";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { absoluteUrl } from "@/libs/utils";
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
@@ -17,7 +17,7 @@ const ttNormsPro = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://outstatic.com"),
+  metadataBase: new URL(absoluteUrl("/")),
   title: {
     default: "DANIEL AIHIE",
     template: "%s | DANIEL AIHIE",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "DANIEL AIHIE",
     images: [
       {
-        url: absoluteUrl("/images/og-image.png"),
+        url: absoluteUrl("/assets/images/og-image.png"),
         width: 1800,
         height: 1600,
       },
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: [{ url: "/favicon/favicon-32x32.png" }],
-    apple: [{ url: "/favicon/apple-touch-icon.png" }],
+    icon: [{ url: "/assets/images/logo.jpg" }],
+    apple: [{ url: "/assets/images/logo.jpg" }],
   },
 };
 
@@ -50,8 +50,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // className={`${heebo.variable} font-heebo ${arbutusSlab.variable} font-arbutusSlab ${helvetica.variable} font-helvetica`}
-
     <html
       lang="en"
       className={`${roboto.variable} font-roboto ${ttNormsPro.variable} font-ttNormsPro`}

@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import { fetchPosts, loadEditBySlug } from "@/libs/getData";
 import markdownToHtml from "@/libs/markdownToHtml";
 import { absoluteUrl } from "@/libs/utils";
-import { Metadata } from "next";
+import { GetStaticPaths, Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import path from "path";
@@ -16,6 +16,7 @@ interface Params {
     slug: string;
   };
 }
+
 export const generateMetadata = async (params: Params): Promise<Metadata> => {
   const { edit, content } = await getData(params);
 
@@ -50,8 +51,7 @@ export const generateMetadata = async (params: Params): Promise<Metadata> => {
 };
 
 const Edit = async (params: Params) => {
-  const { edit, moreedits, content } = await getData(params);
-  console.log(edit);
+  const { edit, moreEdits, content } = await getData(params);
 
   return (
     <Layout className="bg-secondary text-black">
@@ -86,10 +86,10 @@ const Edit = async (params: Params) => {
           </div>
         </article>
         <div className="">
-          {moreedits.length > 0 && (
+          {moreEdits.length > 0 && (
             <ContentGrid
               title="Other edits"
-              items={moreedits}
+              items={moreEdits}
               collection="edits"
             />
           )}
@@ -107,20 +107,12 @@ const getData = async ({ params }: Params) => {
     notFound();
   }
   const content = await markdownToHtml(edit.content);
-  const moreedits = fetchPosts(editsDirectory).filter(
+  const moreEdits = fetchPosts(editsDirectory).filter(
     (it) => it.slug !== params.slug
   );
   return {
     edit,
     content,
-    moreedits,
+    moreEdits,
   };
-};
-
-export const getStaticPaths = async () => {
-  const edits = fetchPosts(editsDirectory);
-  const paths = edits.map((edit) => ({
-    params: { slug: edit.slug },
-  }));
-  return { paths, fallback: false };
 };

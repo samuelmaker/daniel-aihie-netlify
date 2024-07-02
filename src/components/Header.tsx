@@ -1,5 +1,7 @@
+"use client";
+import { socialItems } from "@/libs/socialItems";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 type Props = {
   className?: string;
@@ -8,11 +10,6 @@ type Props = {
 type item = {
   label: string;
   href: string;
-};
-
-type social = {
-  href: string;
-  icon: JSX.Element;
 };
 
 const menuItems: item[] = [
@@ -38,22 +35,16 @@ const menuItems: item[] = [
   },
 ];
 
-export const socialItems: social[] = [
-  {
-    href: "https://www.instagram.com/danielaihie/",
-    icon: <FaInstagram />,
-  },
-  {
-    href: "https://www.facebook.com/danielaihie/",
-    icon: <FaFacebookF />,
-  },
-  {
-    href: "https://twitter.com/danielaihie",
-    icon: <FaTwitter />,
-  },
-];
-
 const Header = ({ className }: Props) => {
+  const [user, setUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("gotrue.user");
+      setUser(storedUser);
+    }
+  }, []);
+
   return (
     <div className={className}>
       <div className="max-w-6xl mx-auto mb-0 px-5">
@@ -69,18 +60,28 @@ const Header = ({ className }: Props) => {
                 </Link>
               </li>
             ))}
+            {user && (
+              <li>
+                <Link
+                  href="/admin"
+                  className="hover:underline uppercase font-semibold"
+                >
+                  Admin
+                </Link>
+              </li>
+            )}
           </ul>
           <ul className="flex flex-wrap items-center justify-center md:justify-between gap-4 md:gap-8 text-base  md:text-xl">
             {socialItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white cursor-pointer "
                 >
                   {item.icon}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
