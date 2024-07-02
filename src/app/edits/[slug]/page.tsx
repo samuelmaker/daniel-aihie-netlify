@@ -34,7 +34,7 @@ export const generateMetadata = async (params: Params): Promise<Metadata> => {
       url: absoluteUrl(`/edits/${edit.slug}`),
       images: [
         {
-          url: absoluteUrl(edit?.thumbnail || "/images/og-image.png"),
+          url: absoluteUrl(edit?.thumbnail || "/assets/images/og-image.png"),
           width: 1200,
           height: 630,
           alt: edit.title,
@@ -45,7 +45,7 @@ export const generateMetadata = async (params: Params): Promise<Metadata> => {
       card: "summary_large_image",
       title: edit.title,
       description: content,
-      images: absoluteUrl(edit?.thumbnail || "/images/og-image.png"),
+      images: absoluteUrl(edit?.thumbnail || "/assets/images/og-image.png"),
     },
   };
 };

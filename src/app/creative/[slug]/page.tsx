@@ -35,7 +35,9 @@ export const generateMetadata = async (params: Params): Promise<Metadata> => {
       url: absoluteUrl(`/creative/${creative.slug}`),
       images: [
         {
-          url: absoluteUrl(creative?.thumbnail || "/images/og-image.png"),
+          url: absoluteUrl(
+            creative?.thumbnail || "/assets/images/og-image.png"
+          ),
           width: 1200,
           height: 630,
           alt: creative.title,
@@ -46,7 +48,7 @@ export const generateMetadata = async (params: Params): Promise<Metadata> => {
       card: "summary_large_image",
       title: creative.title,
       description: content,
-      images: absoluteUrl(creative?.thumbnail || "/images/og-image.png"),
+      images: absoluteUrl(creative?.thumbnail || "/assets/images/og-image.png"),
     },
   };
 };

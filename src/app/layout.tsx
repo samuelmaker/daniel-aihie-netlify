@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: [{ url: "/assets/images/logo.jpg" }],
-    apple: [{ url: "/assets/images/logo.jpg" }],
+    icon: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/favicon.ico" }],
   },
 };
 
