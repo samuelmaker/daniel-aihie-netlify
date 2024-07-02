@@ -16,6 +16,7 @@ html {
 }
 
 body {
+  cursor: url("./cursor.png"), auto;
   @apply font-blocPro bg-primary;
 }
 
