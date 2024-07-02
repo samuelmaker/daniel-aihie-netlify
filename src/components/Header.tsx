@@ -1,7 +1,5 @@
-"use client";
 import { socialItems } from "@/libs/socialItems";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 type Props = {
   className?: string;
@@ -36,15 +34,6 @@ const menuItems: item[] = [
 ];
 
 const Header = ({ className }: Props) => {
-  const [user, setUser] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("gotrue.user");
-      setUser(storedUser);
-    }
-  }, []);
-
   return (
     <div className={className}>
       <div className="max-w-6xl mx-auto mb-0 px-5">
@@ -60,16 +49,6 @@ const Header = ({ className }: Props) => {
                 </Link>
               </li>
             ))}
-            {user && (
-              <li>
-                <Link
-                  href="/admin#"
-                  className="hover:underline uppercase font-semibold"
-                >
-                  Admin
-                </Link>
-              </li>
-            )}
           </ul>
           <ul className="flex flex-wrap items-center justify-center md:justify-between gap-4 md:gap-8 text-base  md:text-xl">
             {socialItems.map((item) => (
