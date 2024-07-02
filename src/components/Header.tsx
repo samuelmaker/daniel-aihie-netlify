@@ -63,7 +63,7 @@ const Header = ({ className }: Props) => {
             {user && (
               <li>
                 <Link
-                  href="/admin"
+                  href="/admin#"
                   className="hover:underline uppercase font-semibold"
                 >
                   Admin
