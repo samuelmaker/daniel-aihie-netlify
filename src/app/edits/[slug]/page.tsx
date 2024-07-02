@@ -56,7 +56,7 @@ const Edit = async (params: Params) => {
   return (
     <Layout className="bg-secondary text-black">
       <div className="max-w-6xl mx-auto px-5 py-6">
-        <article>
+        <article className="article-box">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative mb-2 md:mb-4 sm:mx-0 aspect-square">
               <Image
@@ -67,7 +67,7 @@ const Edit = async (params: Params) => {
                 priority
               />
             </div>
-            <div>
+            <div className="text-center md:text-left flex flex-col justify-center items-center md:justify-normal md:items-start">
               <h1 className="font-primary text-2xl font-bold md:text-4xl mb-2">
                 {edit.title}
               </h1>

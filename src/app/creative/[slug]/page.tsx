@@ -56,7 +56,7 @@ const Creative = async (params: Params) => {
   return (
     <Layout className="bg-secondary text-black">
       <div className="max-w-6xl mx-auto px-5">
-        <article className="py-32">
+        <article className="py-32 article-box">
           <div className="relative mb-2 md:mb-4 sm:mx-0 w-full h-52 md:h-96">
             <Image
               alt={creative.title}

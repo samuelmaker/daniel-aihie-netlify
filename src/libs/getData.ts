@@ -12,13 +12,14 @@ export type PostData = {
   author?: string;
 };
 
-let PostsCache: PostData[];
+let PostsCache: { [directory: string]: PostData[] } = {};
 
 export function fetchPosts(directory: string): PostData[] {
-  if (PostsCache) {
-    return PostsCache;
+  // Check if cache exists for the specific directory
+  if (PostsCache[directory]) {
+    return PostsCache[directory];
   }
-  // Get file names under /edits
+  // Get file names under the specified directory
   const fileNames = fs.readdirSync(directory);
   const allPostsData = fileNames
     .filter((it) => it.endsWith(".md"))
@@ -27,14 +28,13 @@ export function fetchPosts(directory: string): PostData[] {
       const fullPath = path.join(directory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
-      // Use gray-matter to parse the Edits metadata section
+      // Use gray-matter to parse the metadata section
       const matterResult = matter(fileContents, {
         engines: {
           yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
         },
       });
       const matterData = matterResult.data as PostData;
-      // matterData.fullPath = fullPath;
 
       const slug = fileName.replace(/\.md$/, "");
 
@@ -47,15 +47,11 @@ export function fetchPosts(directory: string): PostData[] {
 
       return matterData;
     });
-  // Sort edits by date
-  PostsCache = allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-  return PostsCache;
+  // Sort posts by date
+  PostsCache[directory] = allPostsData.sort((a, b) =>
+    a.date < b.date ? 1 : -1
+  );
+  return PostsCache[directory];
 }
 
 export function loadEditBySlug(directory: string, slug: string) {
