@@ -6,13 +6,11 @@ date: 2024-07-03
 thumbnail: /assets/images/omar.jpg
 author: admin
 ---
-## Omar Apollo x Youth To The People’ Role: Editor 
+## Omar Apollo x Youth To The People’ Role: Editor
 
 
 
 Client Youth To The People - Task was how do we create a visual representation showcasing the key to wellness. 
-
-![]()
 
 As an editor collaborating closely with director Christelle De Castro on this project, our aim for the brand film is to introduce YTTP to the audience in an unconventional manner, showcasing skincare in a fresh light. By bypassing cliché product shots, we focus on highlighting the essence of what makes us beautifully human. With the assistance of our new ambassador, Omar Apollo, we delve into the authentic and relatable aspects of our shared human experience, creating a narrative that resonates deeply with viewers.
 
