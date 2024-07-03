@@ -13,3 +13,5 @@ As a creative and content creator at the BBC, my role was to bring music concept
 Drawing inspiration from the album art, we wanted to experiment with thermal cameras to capture the performance:
 
 From the full-length live performance/ Interview that lived on iPlayer, we created clips of each performed song that lived on BBC socials (for YouTube, Instagram, and Meta) showcasing all songs performed in the main full–length show.
+
+![](/assets/images/skepta-bbc-performance-pitch-1-_page-0001.jpg)
