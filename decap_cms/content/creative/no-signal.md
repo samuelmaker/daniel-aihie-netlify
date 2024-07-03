@@ -8,15 +8,11 @@ author: admin
 ---
 ## 'NO SIGNAL NS YEARBOOK’ Role: Creative Direction & Concept
 
-
-
 Client No Signal – Task with creating a brand-new concept in which we can showcase and champion emerging/established talent.
 
 As a creative lead, I wanted a format that would resonate with the audience by aligning it with something that most people in the U.K. and worldwide have experienced 'School Picture Day'. But also use that as a beacon for the talent that would feature on the list.
 
 ![](/assets/images/dscf0095-1-.jpg)
-
-
 
 ![](/assets/images/pa-salieu-1739-copy-1-1-.jpg)
 
@@ -31,5 +27,3 @@ As a creative lead, I wanted a format that would resonate with the audience by a
 The billboards were showcased across the U.K. and featured across social media, cementing No Signal's place in the music scene and cultivating a culture for tastemaker
 
 ![](/assets/images/bts-of-me-meeting-no-signal-.jpg)
-
-s.
