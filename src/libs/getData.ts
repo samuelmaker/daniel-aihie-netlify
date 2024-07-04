@@ -9,6 +9,7 @@ export type PostData = {
   slug: string;
   date: string;
   thumbnail: string;
+  headerImg?: string;
   author?: string;
 };
 

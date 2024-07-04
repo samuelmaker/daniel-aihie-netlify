@@ -48,6 +48,7 @@ collections:
           dateFormat: "YYYY-MM-DD",
           timeFormat: false,
         }
+      - { label: "Header Image", name: "headerImg", widget: "image" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - {
           label: "Author",
@@ -84,6 +85,7 @@ collections:
           dateFormat: "YYYY-MM-DD",
           timeFormat: false,
         }
+      - { label: "Header Image", name: "headerImg", widget: "image" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - {
           label: "Author",

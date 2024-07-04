@@ -55,10 +55,25 @@ const Edit = async (params: Params) => {
 
   return (
     <Layout className="bg-secondary text-black">
+      <div className="pt-16">
+        <div className="w-full relative max-w-sm mx-auto">
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-green-500 to-teal-500 transform scale-[1] bg-green-500 rounded-full blur-3xl" />
+          <div className="relative h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+            <Image
+              alt={edit.title}
+              src={edit?.headerImg || edit.thumbnail}
+              width={600}
+              height={400}
+              className="object-cover mx-auto"
+              priority
+            />
+          </div>
+        </div>
+      </div>
       <div className="max-w-6xl mx-auto px-5 py-6">
         <article className="article-box">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative mb-2 md:mb-4 sm:mx-0 aspect-square">
+          <div className="">
+            {/* <div className="relative mb-2 md:mb-4 sm:mx-0 aspect-square">
               <Image
                 alt={edit.title}
                 src={edit.thumbnail ?? ""}
@@ -66,7 +81,7 @@ const Edit = async (params: Params) => {
                 className="object-cover object-center"
                 priority
               />
-            </div>
+            </div> */}
             <div className="text-center md:text-left flex flex-col justify-center items-center md:justify-normal md:items-start">
               <h1
                 data-aos="fade-down"

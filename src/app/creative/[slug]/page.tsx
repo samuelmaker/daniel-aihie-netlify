@@ -60,11 +60,10 @@ const Creative = async (params: Params) => {
       <div className="pt-16">
         <div className="w-full relative max-w-sm mx-auto">
           <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-green-500 to-teal-500 transform scale-[1] bg-green-500 rounded-full blur-3xl" />
-
           <div className="relative h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
             <Image
               alt={creative.title}
-              src={creative?.thumbnail || ""}
+              src={creative?.headerImg || creative.thumbnail}
               width={600}
               height={400}
               className="object-cover mx-auto"
