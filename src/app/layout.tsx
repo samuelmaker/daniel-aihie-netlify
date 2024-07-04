@@ -2,6 +2,7 @@ import { absoluteUrl } from "@/libs/utils";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "@/components/Providers";
 
 const openSauceSans = localFont({
   src: "./OpenSauceSans.ttf",
@@ -51,7 +52,9 @@ export default function RootLayout({
       lang="en"
       className={`${extenda.variable} font-extenda ${openSauceSans.variable} font-openSauceSans`}
     >
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

@@ -1,9 +1,9 @@
 import DateFormatter from "@/components/DateFormatter";
 import Layout from "@/components/Layout";
-import { fetchPosts, loadEditBySlug } from "@/libs/getData";
+import { loadEditBySlug } from "@/libs/getData";
 import markdownToHtml from "@/libs/markdownToHtml";
 import { absoluteUrl } from "@/libs/utils";
-import { GetStaticPaths, Metadata } from "next";
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import path from "path";
@@ -57,9 +57,25 @@ const Creative = async (params: Params) => {
   const { creative, content } = await getData(params);
   return (
     <Layout className="bg-secondary text-black">
+      <div className="pt-16">
+        <div className="w-full relative max-w-sm mx-auto">
+          <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-green-500 to-teal-500 transform scale-[1] bg-green-500 rounded-full blur-3xl" />
+
+          <div className="relative h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+            <Image
+              alt={creative.title}
+              src={creative?.thumbnail || ""}
+              width={600}
+              height={400}
+              className="object-cover mx-auto"
+              priority
+            />
+          </div>
+        </div>
+      </div>
       <div className="max-w-6xl mx-auto px-5">
         <article className="py-32 article-box">
-          <div className="relative mb-2 md:mb-4 sm:mx-0 w-full h-52 md:h-96">
+          {/* <div className="relative mb-2 md:mb-4 sm:mx-0 w-full h-52 md:h-96">
             <Image
               alt={creative.title}
               src={creative?.thumbnail || ""}
@@ -67,18 +83,25 @@ const Creative = async (params: Params) => {
               className="object-cover object-center"
               priority
             />
-          </div>
+          </div> */}
 
-          <h1 className="font-primary text-2xl font-bold md:text-4xl mb-2">
+          <h1
+            data-aos="fade-down"
+            className="font-primary text-2xl font-bold md:text-4xl mb-2"
+          >
             {creative.title}
           </h1>
-          <div className="hidden md:block md:mb-12 text-slate-600 capitalize font-openSauceSans font-medium">
+          <div
+            data-aos="fade-down"
+            className="hidden md:block md:mb-12 text-slate-600 capitalize font-openSauceSans font-medium"
+          >
             Written on <DateFormatter dateString={creative.date} /> by{" "}
             {creative?.author || ""}.
           </div>
           <hr className="border-neutral-200 mt-10 mb-10" />
           <div className="max-w-2xl mx-auto">
             <div
+              data-aos="fade-down"
               className="prose lg:prose-xl font-openSauceSans font-medium"
               dangerouslySetInnerHTML={{ __html: content }}
             />
