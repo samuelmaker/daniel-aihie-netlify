@@ -1,18 +1,15 @@
 import { absoluteUrl } from "@/libs/utils";
 import { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const roboto = Roboto({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  variable: "--font-roboto",
+const openSauceSans = localFont({
+  src: "./OpenSauceSans.ttf",
+  variable: "--font-openSauceSans",
 });
-
-const blocPro = localFont({
-  src: "./Bloc.ttf",
-  variable: "--font-blocPro",
+const extenda = localFont({
+  src: "./Extenda.otf",
+  variable: "--font-extenda",
   weight: "900",
 });
 
@@ -52,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${roboto.variable} font-roboto ${blocPro.variable} font-blocPro`}
+      className={`${extenda.variable} font-extenda ${openSauceSans.variable} font-openSauceSans`}
     >
       <body>{children}</body>
     </html>

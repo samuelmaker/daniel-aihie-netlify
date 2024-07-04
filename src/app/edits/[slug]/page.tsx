@@ -71,12 +71,12 @@ const Edit = async (params: Params) => {
               <h1 className="font-primary text-2xl font-bold md:text-4xl mb-2">
                 {edit.title}
               </h1>
-              <div className="hidden md:block md:mb-8 text-slate-600 capitalize">
+              <div className="hidden md:block md:mb-8 text-slate-600 capitalize font-openSauceSans font-medium">
                 Launched on <DateFormatter dateString={edit.date} />{" "}
                 {edit?.author ? `by ${edit?.author}` : null}.
               </div>
 
-              <div className="max-w-2xl mx-auto">
+              <div className="max-w-2xl mx-auto font-openSauceSans font-medium">
                 <div
                   className="prose lg:prose-xl"
                   dangerouslySetInnerHTML={{ __html: content }}

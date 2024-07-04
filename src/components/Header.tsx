@@ -43,7 +43,7 @@ const Header = ({ className }: Props) => {
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  className="hover:underline uppercase font-semibold"
+                  className="hover:underline uppercase font-openSauceSans font-bold"
                 >
                   {item.label}
                 </Link>

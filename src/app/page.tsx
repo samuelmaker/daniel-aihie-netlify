@@ -1,8 +1,6 @@
 import Layout from "@/components/Layout";
 import { socialItems } from "@/libs/socialItems";
 import homeBg from "@public/assets/images/home-bg.jpg";
-import plane from "@public/assets/images/paper-plane.png";
-import Image from "next/image";
 import Link from "next/link";
 
 const Home = async () => {
@@ -78,15 +76,6 @@ const Home = async () => {
               >
                 Contact Me
               </Link>
-            </div>
-            <div className="absolute bottom-[37%] right-[14%] md:bottom-[25%] md:right-[10%]">
-              <Image
-                src={plane}
-                alt="plane"
-                width={256}
-                height={256}
-                className="size-16 sm:size-20 md:size-auto object-cover"
-              />
             </div>
           </div>
         </div>

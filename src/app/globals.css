@@ -16,7 +16,7 @@ html {
 }
 body {
   cursor: url("/assets/images/cursor.png"), auto;
-  @apply font-blocPro bg-primary;
+  @apply font-openSauceSans bg-primary;
 }
 
 ol,
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-blocPro font-black;
+  @apply font-extenda font-bold;
 }
 
 .article-box iframe {

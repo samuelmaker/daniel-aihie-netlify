@@ -11,7 +11,7 @@ type Props = {
 const ContentGrid = ({ title, items, collection, priority = false }: Props) => {
   return (
     <section id={collection} className="py-6 md:py-12">
-      <h2 className="mb-8 text-3xl md:text-6xl font-bold tracking-wider text-center uppercase text-primary">
+      <h2 className="mb-8 text-3xl md:text-6xl font-extenda font-bold tracking-wider text-center uppercase text-primary">
         {title}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-1 ">

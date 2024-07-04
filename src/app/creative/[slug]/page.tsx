@@ -72,14 +72,14 @@ const Creative = async (params: Params) => {
           <h1 className="font-primary text-2xl font-bold md:text-4xl mb-2">
             {creative.title}
           </h1>
-          <div className="hidden md:block md:mb-12 text-slate-600 capitalize">
+          <div className="hidden md:block md:mb-12 text-slate-600 capitalize font-openSauceSans font-medium">
             Written on <DateFormatter dateString={creative.date} /> by{" "}
             {creative?.author || ""}.
           </div>
           <hr className="border-neutral-200 mt-10 mb-10" />
           <div className="max-w-2xl mx-auto">
             <div
-              className="prose lg:prose-xl"
+              className="prose lg:prose-xl font-openSauceSans font-medium"
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>
