@@ -30,11 +30,12 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-extenda font-bold;
+  @apply font-bloc font-black;
 }
 
 .article-box iframe {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .gradient-bg {
@@ -44,4 +45,10 @@ h6 {
     rgba(255, 255, 255, 0) 100%
   );
   display: inline-block; /* This makes the div fit the content */
+}
+
+@media screen and (max-width: 640px) {
+  .article-box iframe {
+    height: auto !important;
+  }
 }

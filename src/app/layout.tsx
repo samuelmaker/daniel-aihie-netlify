@@ -4,6 +4,11 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
+const bloc = localFont({
+  src: "./Bloc.ttf",
+  variable: "--font-bloc",
+  weight: "900",
+});
 const openSauceSans = localFont({
   src: "./OpenSauceSans.ttf",
   variable: "--font-openSauceSans",
@@ -50,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${extenda.variable} font-extenda ${openSauceSans.variable} font-openSauceSans`}
+      className={`${bloc.variable} font-bloc ${extenda.variable} font-extenda ${openSauceSans.variable} font-openSauceSans`}
     >
       <body>
         <Providers>{children}</Providers>

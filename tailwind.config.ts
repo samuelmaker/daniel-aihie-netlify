@@ -13,6 +13,7 @@ const config: Config = {
         secondary: "var(--secondary)",
       },
       fontFamily: {
+        bloc: ["var(--font-bloc)"],
         extenda: ["var(--font-extenda)"],
         openSauceSans: ["var(--font-openSauceSans)"],
       },
