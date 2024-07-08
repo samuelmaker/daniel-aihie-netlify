@@ -26,7 +26,7 @@ const ContactMe = () => {
           <form className="my-2 text-white" onSubmit={handleSubmit}>
             <label
               htmlFor="name"
-              className="mb-2 inline-block px-8 py-2 bg-white border-[6px] border-black rounded-2xl font-bold text-xl text-black uppercase"
+              className="mb-2 inline-block px-8 py-2 bg-white border-[6px] border-black rounded-2xl font-bloc font-bold text-xl text-black uppercase"
             >
               Name
             </label>
@@ -38,7 +38,12 @@ const ContactMe = () => {
               placeholder="YOUR NAME..."
             />
             <div className="my-8">
-              <label htmlFor="email">EMAIL ADDRESS*</label>
+              <label
+                className="mb-2 inline-block px-8 py-2 bg-white border-[6px] border-black rounded-2xl font-bloc font-bold text-xl text-black uppercase"
+                htmlFor="email"
+              >
+                EMAIL ADDRESS*
+              </label>
               <input
                 ref={emailRef}
                 id="email"
@@ -49,7 +54,12 @@ const ContactMe = () => {
             </div>
 
             <div className="my-8">
-              <label htmlFor="message">MESSAGE*</label>
+              <label
+                className="mb-2 inline-block px-8 py-2 bg-white border-[6px] border-black rounded-2xl font-bloc font-bold text-xl text-black uppercase"
+                htmlFor="message"
+              >
+                MESSAGE*
+              </label>
               <textarea
                 ref={messageRef}
                 id="message"

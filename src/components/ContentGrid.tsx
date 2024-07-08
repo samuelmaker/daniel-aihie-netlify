@@ -17,7 +17,7 @@ const ContentGrid = ({ title, items, collection, priority = false }: Props) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-1 ">
         {items.map((item, id) => (
           <Link key={item.slug} href={`/${collection}/${item.slug}`}>
-            <div className="cursor-pointer  md:w-full scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 hover:shadow overflow-hidden border-4 border-white">
+            <div className="cursor-pointer  md:w-full scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 hover:shadow overflow-hidden ">
               <div className="sm:mx-0">
                 <Image
                   src={item.thumbnail ?? ""}
