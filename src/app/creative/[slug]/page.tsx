@@ -58,13 +58,13 @@ const Creative = async (params: Params) => {
   return (
     <Layout className="bg-secondary text-black">
       <div className="pt-8 md:pt-16">
-        <div className="w-full relative max-w-sm mx-auto px-4">
+        <div className="w-full relative max-w-2xl mx-auto px-4">
           <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-blue-500 transform scale-[1] bg-blue-500 rounded-full blur-3xl" />
           <div className="relative h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
             <Image
               alt={creative.title}
               src={creative?.headerImg || creative.thumbnail}
-              width={600}
+              width={800}
               height={400}
               className="object-cover mx-auto"
               priority
