@@ -3,6 +3,7 @@ layout: blog
 title: Omar Apollo x Youth To The People
 slug: omar-apollo
 date: 2024-07-03
+headerImg: /assets/images/omar.jpg
 thumbnail: /assets/images/omar.jpg
 author: admin
 ---
