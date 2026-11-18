@@ -14,9 +14,7 @@ const creativeDirectory = path.join(
 );
 
 interface Params {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 export const generateMetadata = async (params: Params): Promise<Metadata> => {
   const { creative, content } = await getData(params);
@@ -107,7 +105,8 @@ const Creative = async (params: Params) => {
 export default Creative;
 
 const getData = async ({ params }: Params) => {
-  const creative = loadEditBySlug(creativeDirectory, params.slug);
+  const { slug } = await params;
+  const creative = loadEditBySlug(creativeDirectory, slug);
   if (!creative) {
     notFound();
   }

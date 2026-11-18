@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 type social = {
