@@ -12,9 +12,7 @@ import path from "path";
 const editsDirectory = path.join(process.cwd(), "decap_cms/content/edits");
 
 interface Params {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export const generateMetadata = async (params: Params): Promise<Metadata> => {
@@ -115,13 +113,14 @@ const Edit = async (params: Params) => {
 export default Edit;
 
 const getData = async ({ params }: Params) => {
-  const edit = loadEditBySlug(editsDirectory, params.slug);
+  const { slug } = await params;
+  const edit = loadEditBySlug(editsDirectory, slug);
   if (!edit) {
     notFound();
   }
   const content = await markdownToHtml(edit.content);
   const moreEdits = fetchPosts(editsDirectory).filter(
-    (it) => it.slug !== params.slug
+    (it) => it.slug !== slug
   );
   return {
     edit,
